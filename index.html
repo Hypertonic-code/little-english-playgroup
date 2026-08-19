@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="Little English Playgroup · 4 周亲子英语游戏小组">
+<meta property="og:description" content="适合 8–18 个月宝宝的轻松亲子英语活动：家长招生介绍 + 第 1–4 周课程单页，可点击听发音。">
+<meta property="og:type" content="website">
+<title>Little English Playgroup · 亲子英语游戏小组</title>
+<style>
+  :root {
+    --sage: #8aab8f;
+    --sage-light: #d6e5d4;
+    --sage-dark: #5e7d63;
+    --cream: #faf7f0;
+    --cream-2: #f3ede0;
+    --peach: #e8b89b;
+    --sky: #a8c8d8;
+    --sun: #f1c46b;
+    --ink: #3a3a3a;
+    --ink-soft: #6b6b6b;
+    --white: #fffdf8;
+    --shadow: 0 4px 20px rgba(94, 125, 99, 0.12);
+    --radius: 20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: linear-gradient(160deg, var(--sage-light) 0%, var(--cream) 100%);
+    padding: 50px 20px 40px;
+    text-align: center;
+    border-bottom: 4px solid var(--sage);
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    color: var(--sage-dark);
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .hero .sub-en {
+    font-size: clamp(15px, 2.5vw, 20px);
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+  .hero p.desc {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .hero .keywords {
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .hero .keywords span {
+    background: var(--white);
+    color: var(--sage-dark);
+    border: 2px solid var(--sage-light);
+    padding: 8px 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .hero .hint-line {
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: var(--sage-dark);
+    background: var(--white);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px dashed var(--sage);
+  }
+
+  /* ---------- NAV TABS ---------- */
+  .tabs-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .tabs {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+  .tab {
+    flex: 0 0 auto;
+    padding: 16px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all .2s;
+  }
+  .tab:hover { color: var(--sage-dark); }
+  .tab.active {
+    color: var(--sage-dark);
+    border-bottom-color: var(--sage);
+  }
+
+  /* ---------- CONTENT ---------- */
+  .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+  .panel { display: none; animation: fade .4s ease; }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .section-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--cream-2);
+  }
+  .section-card h2 {
+    font-size: 22px;
+    color: var(--sage-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-card h3 { font-size: 17px; color: var(--sage-dark); margin: 18px 0 10px; }
+
+  .lead { font-size: 16px; color: var(--ink-soft); }
+
+  /* WHO list */
+  .check-list { list-style: none; margin-top: 10px; }
+  .check-list li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+    font-size: 15.5px;
+  }
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 8px;
+    color: var(--sage);
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .pill {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* learning approach */
+  .dont-do, .do-do {
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-top: 14px;
+  }
+  .dont-do { background: #fbeee9; border-left: 5px solid var(--peach); }
+  .do-do { background: #eaf3e8; border-left: 5px solid var(--sage); }
+  .dont-do h3, .do-do h3 { margin-top: 0; }
+  .dont-do h3 { color: #c87a55; }
+  .do-do h3 { color: var(--sage-dark); }
+  .dont-do li, .do-do li { font-size: 15px; margin: 6px 0; list-style: none; padding-left: 26px; position: relative; }
+  .dont-do li::before { content: "✕"; position: absolute; left: 0; color: var(--peach); font-weight: bold; }
+  .do-do li::before { content: "✓"; position: absolute; left: 0; color: var(--sage); font-weight: bold; }
+
+  /* timeline */
+  .timeline { margin-top: 16px; }
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--cream-2);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time {
+    flex: 0 0 70px;
+    font-weight: 700;
+    color: var(--sage-dark);
+    font-size: 14px;
+    padding-top: 2px;
+  }
+  .tl-body { flex: 1; }
+  .tl-body .t-title { font-weight: 600; }
+  .tl-body .t-en { color: var(--ink-soft); font-size: 14px; }
+
+  /* values */
+  .value-box { background: #fbf3ea; border-radius: 16px; padding: 20px 22px; margin-top: 14px; }
+  .value-box ul { list-style: none; }
+  .value-box li { padding: 5px 0 5px 24px; position: relative; font-size: 15px; }
+  .value-box li::before { content: "❤"; position: absolute; left: 0; color: var(--peach); }
+
+  /* week panel */
+  .week-head {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .week-head .w-emoji { font-size: 48px; }
+  .week-head h2 { color: var(--white); font-size: 30px; margin: 6px 0; }
+  .week-head .w-theme { font-size: 18px; opacity: .95; }
+  .week-head .w-sub { font-size: 14.5px; opacity: .9; margin-top: 10px; }
+
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px,1fr)); gap: 12px; margin-top: 14px; }
+  .vocab {
+    background: var(--sage-light);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .15s, background .2s;
+    border: 2px solid transparent;
+  }
+  .vocab:hover { transform: translateY(-3px); }
+  .vocab.spoken { background: var(--sun); border-color: #e0a83f; }
+  .vocab .v-en { font-weight: 700; font-size: 18px; color: var(--sage-dark); }
+  .vocab.spoken .v-en { color: #6b4e1a; }
+  .vocab .v-hint { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+  .vocab.spoken .v-hint { color: #7a5a20; }
+
+  .phrase-list { margin-top: 14px; }
+  .phrase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cream-2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--sage-dark);
+  }
+  .phrase button {
+    background: var(--sage);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .phrase button:hover { background: var(--sage-dark); }
+
+  .song-list { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .song {
+    background: var(--sky);
+    color: #fff;
+    border-radius: 14px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .activity-list { margin-top: 12px; counter-reset: act; }
+  .activity {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 14px 16px 14px 50px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 15px;
+    border: 1px solid var(--cream-2);
+  }
+  .activity::before {
+    counter-increment: act;
+    content: counter(act);
+    position: absolute;
+    left: 14px; top: 14px;
+    width: 26px; height: 26px;
+    background: var(--peach);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 14px;
+  }
+
+  .home-play {
+    background: #eef5ec;
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 14px;
+    border-left: 5px solid var(--sun);
+  }
+  .home-play .hp-line {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin: 6px 0;
+  }
+
+  /* week navigator */
+  .week-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; }
+  .week-nav button {
+    flex: 1;
+    background: var(--white);
+    border: 2px solid var(--sage-light);
+    color: var(--sage-dark);
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .week-nav button:hover:not(:disabled) { background: var(--sage-light); }
+  .week-nav button:disabled { opacity: .4; cursor: not-allowed; }
+  .week-nav button .wn-sub { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); margin-top: 3px; }
+
+  .tip {
+    background: #fff8e9;
+    border: 1px dashed var(--sun);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #7a5a20;
+    margin-top: 16px;
+  }
+  .tip b { color: #6b4e1a; }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    background: var(--cream-2);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="badge">🌿 Little English Playgroup</span>
+  <h1>4 周亲子英语游戏小组</h1>
+  <div class="sub-en">A small, relaxed English playgroup for babies aged 8–18 months</div>
+  <p class="desc">这是一个由邻里家庭一起发起的小型亲子英语活动。我们不追求让宝宝坐好、背单词，也不是传统意义上的"上课"。我们希望给宝宝一个轻松的环境，让英语自然发生在玩耍和探索中。</p>
+  <div class="keywords">
+    <span>🎵 Play</span>
+    <span>🤸 Move</span>
+    <span>🎶 Sing</span>
+    <span>🔍 Explore</span>
+    <span>👂 Listen</span>
+  </div>
+  <p class="hint-line">💡 点击词汇卡 / 🔊 按钮可听英语发音 · 用手机浏览器打开体验最佳</p>
+</header>
+
+<!-- TABS -->
+<nav class="tabs-wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-target="intro">家长介绍</button>
+    <button class="tab" data-target="w1">第 1 周 · 球</button>
